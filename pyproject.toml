@@ -7,7 +7,8 @@ name = "macro_data_reports"
 version = "0.0.1"
 requires-python = ">= 3.10"
 dependencies = [
-    "tabulate"
+    "tabulate",
+    "python-dotenv"
 ]
 authors = [{name = "Klimov Artem", email = "artemklimowwork@gmail.com"}]
 description = "App for check coins rate"
@@ -40,7 +41,7 @@ indent-width = 4
 show-fixes = true
 
 [tool.setuptools.packages.find]
-where = [".", "market_client"]
+where = [".", "src"]
 
 [tool.ruff.lint]
 select = []
@@ -56,11 +57,10 @@ line-ending = "auto"
 force-single-line = true
 lines-between-types = 1
 lines-after-imports = 2
-known-first-party = ["coin_rate"]
+known-first-party = [".", "src"]
 known-third-party = ["*venv/lib/python*/site-packages"]
 
 [tool.pytest.ini_options]
 cache_dir = "~/.cache/pytest"
-pythonpath = ["tests"]
-anyio_mode = "auto"
+pythonpath = [".", "tests", "src"]
 consider_namespace_packages = "True"
