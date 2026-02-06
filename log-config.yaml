@@ -24,7 +24,7 @@ handlers:
   file:
     class: logging.FileHandler
     level: DEBUG
-    filename: /Users/ekaterinaklimova/Documents/Разработка/macro_data_reports/logs/app.log
+    filename: path/to/logs/app.log
     mode: w
     formatter: struct
 loggers:
