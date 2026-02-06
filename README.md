@@ -29,3 +29,5 @@ Now avalible following repors:
 ```
 python src/macrodata_reports/main.py -f economic1.csv economic2.csv -r average-gdp
 ```
+
+>*Note*: To ensure proper operation, it is necessary to set the LOG_CONFIG_FILE environment variable to the path of the configuration file for logs
