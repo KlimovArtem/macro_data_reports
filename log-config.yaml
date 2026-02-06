@@ -1,0 +1,35 @@
+version: 1
+formatters:
+  struct:
+      format: |
+        {
+          "timestamp": "%(asctime)s",
+          "record": {
+            "level": "%(levelname)s",
+            "module": "%(module)s",
+            "filename": "%(filename)s",
+            "message": "%(message)s"
+          }
+        }
+      datefmt: "%Y-%m-%d %H:%M:%S"
+  default:
+    format: "%(asctime)s | [%(levelname)s]: %(message)s"
+    datefmt: "%Y-%m-%d %H:%M:%S"
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    stream: ext://sys.stdout
+    formatter: default
+  file:
+    class: logging.FileHandler
+    level: DEBUG
+    filename: path/to/logs/app.log
+    mode: w
+    formatter: struct
+loggers:
+  main:
+    level: DEBUG
+    handlers:
+      - console
+      - file

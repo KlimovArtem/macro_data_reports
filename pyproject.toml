@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0.0, <69.3.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "macro_data_reports"
+version = "0.0.1"
+requires-python = ">= 3.10"
+dependencies = [
+    "tabulate",
+    "python-dotenv"
+]
+authors = [{name = "Klimov Artem", email = "artemklimowwork@gmail.com"}]
+description = "App for check coins rate"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pre-commit",
+    "ruff",
+    "ty",
+]
+
+[tool.ruff]
+cache-dir = "~/.cache/ruff"
+
+exclude = [
+    "__pycache__",
+    "*venv/",
+    ".venv",
+    "venv",
+    ".env",
+    "ruff_cache",
+    "pytest_cache",
+    ".git",
+    ".vscode",
+]
+
+line-length = 120
+indent-width = 4
+show-fixes = true
+
+[tool.setuptools.packages.find]
+where = [".", "src"]
+
+[tool.ruff.lint]
+select = []
+ignore = []
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+force-single-line = true
+lines-between-types = 1
+lines-after-imports = 2
+known-first-party = [".", "src"]
+known-third-party = ["*venv/lib/python*/site-packages"]
+
+[tool.pytest.ini_options]
+cache_dir = "~/.cache/pytest"
+pythonpath = [".", "tests", "src"]
+consider_namespace_packages = "True"
